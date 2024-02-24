@@ -1,41 +1,32 @@
 import random
-from turtle import Turtle, Screen
+import turtle as t
 
-tim = Turtle()
+t.colormode(255)
+pepito = t.Turtle()
+pepito.speed("fastest")
+pepito.penup()
+pepito.hideturtle()
+rgb_colors = [(177, 59, 36), (239, 224, 2), (2, 99, 76), (215, 63, 123), (130, 36, 20), (245, 231, 46), (94, 171, 225), (237, 161, 192), (179, 56, 111), (225, 72, 52)]
 
-tim.shape("turtle")
-tim.color("#000080")
-colours = ["CornflowerBlue", "DarkOrchid", "IndianRed", "DeepSkyBlue", "LightSeaGreen", "wheat", "SlateGray", "SeaGreen"]
+pepito.setheading(225)
+pepito.forward(300)
+pepito.setheading(0)
+number_of_dots = 100
 
-tim.pensize(15)
-tim.speed("fastest")
+for dot_count in range(1, number_of_dots + 1 ):
+    pepito.dot(20, random.choice(rgb_colors))
+    pepito.forward(50)
 
-steps = 0
-while steps < 200:
-    tim.pencolor(random.choice(colours))
-    direction = random.randint(1, 4)
-    print(direction)
-    match direction:
-        case 1:
-            tim.forward(40)
-        case 2:
-            tim.right(40)
-        case 3:
-            tim.left(40)
-        case _:
-            tim.backward(40)
-    steps += 1
+    if dot_count % 10 == 0 :
+        pepito.setheading(90)
+        pepito.forward(50)
+        pepito.setheading(180)
+        pepito.forward(500)
+        pepito.setheading(0)
 
 
 
 
 
-
-
-
-
-
-
-
-screen = Screen()
+screen = t.Screen()
 screen.exitonclick()
