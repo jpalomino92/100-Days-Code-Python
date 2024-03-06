@@ -8,7 +8,6 @@ RIGHT = 0
 
 
 class Snake:
-
     def __init__(self):
         self.body = []
         self.create_snake()
@@ -28,7 +27,12 @@ class Snake:
     def extend(self):
         self.add_segment(self.body[-1].position())
 
-
+    def reset(self):
+        for b in self.body:
+            b.goto(1000, 1000)
+        self.body.clear()
+        self.create_snake()
+        self.head = self.body[0]
 
     def move(self):
         for s in range(len(self.body) - 1, 0, -1):
